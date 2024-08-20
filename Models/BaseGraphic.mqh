@@ -14,20 +14,20 @@
  *================================================================================================**/
 
 /*=========================================== Includes ===========================================*/
-#include "../../PivotPoint/PivotPoint.mqh"
+#include "../../Global/Models/PivotPoint.mqh"
 #include <Arrays/ArrayObj.mqh>
 
 /*=========================================== class ===========================================*/
 class BaseGraphic
 {
-  private:
+private:
     /*------------------------------------------- Parameters -------------------------------------------*/
 
     /*------------------------------------------- Methods -------------------------------------------*/
     void createSinglePointObject(ENUM_OBJECT i_objType);
     void createDoublePointObject(ENUM_OBJECT i_objType);
 
-  public:
+public:
     /*------------------------------------------- Parameters -------------------------------------------*/
     CArrayObj *m_points;
     string m_symbol;
@@ -323,15 +323,18 @@ void BaseGraphic::createObject(ENUM_OBJECT i_objType)
     }
     switch (i_objType)
     {
-    case OBJ_TREND: {
+    case OBJ_TREND:
+    {
         createDoublePointObject(i_objType);
         break;
     }
-    case OBJ_RECTANGLE: {
+    case OBJ_RECTANGLE:
+    {
         createDoublePointObject(i_objType);
         break;
     }
-    case OBJ_ARROW: {
+    case OBJ_ARROW:
+    {
         createSinglePointObject(i_objType);
         break;
     }
